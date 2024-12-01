@@ -43,7 +43,7 @@ const updateStudent_controller=async (req, res)=>{
 }
 
 
-const getStudentID_controller=async (req, res)=>{
+/*const getStudentID_controller=async (req, res)=>{
     const {id}=req.params
     try {
         const student=await studentModel.getStudentID_model(id)
@@ -52,7 +52,7 @@ const getStudentID_controller=async (req, res)=>{
     } catch (error) {
         res.status(500).json(error)
     }
-}
+}*/
 
 
 const deleteStudent_controller=async (req, res)=>{
@@ -77,12 +77,33 @@ const getStudent_controller=async (req, res)=>{
 }
 
 
+/*const getStudentID_controller = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const student = await studentModel.getStudentID_model(id);
+
+        if (!student) {
+            return res.status(404).json({ error: 'Student not found' });
+        }
+
+        // Respuesta exitosa
+        res.status(200).json(student);
+    } catch (error) {
+        // Manejar errores inesperados
+        console.error('Error fetching student by ID:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};*/
+
+
+
+
 
 export {
     registerStudent_controller,
     loginStudent_controller,
     updateStudent_controller,
-    getStudentID_controller,
+    //getStudentID_controller,
     deleteStudent_controller,
     getStudent_controller
 }

@@ -39,14 +39,14 @@ const studentModel={
     },
 
 
-    async getStudentID_model(studentID){
+    /*async getStudentID_model(studentID){
         const response=await fetch(`http://localhost:4000/students/${studentID}`);
         if (!response.ok){
             return {error: "Student not registered"}
         }
         const data=await response.json()
         return data
-    },
+    },*/
 
 
     async deleteStudent_model(studentID){
@@ -65,7 +65,7 @@ const studentModel={
         return data
     }
 
-    
+
 }
 export default studentModel
 
