@@ -24,6 +24,49 @@ const studentModel={
         } else {
             return {error: "Mail or password wrong, try again"}
         }
+    },
+
+
+    async updateStudent_model(studentID, updateStudent_model){
+        const url=`http://localhost:4000/students/${studentID}`
+        const peticion=await fetch(url, {
+            method: "PUT",
+            body: JSON.stringify(updateStudent_model),
+            headers: {'Content-Type': "application/json"}
+        })
+        const data=await peticion.json()
+        return data
+    },
+
+
+    async getStudentID_model(studentID){
+        const response=await fetch(`http://localhost:4000/students/${studentID}`);
+        if (!response.ok){
+            return {error: "Student not registered"}
+        }
+        const data=await response.json()
+        return data
+    },
+
+
+    async deleteStudent_model(studentID){
+        const url=`http://localhost:4000/students/${studentID}`
+        const peticion=await fetch (url, {
+            method: "DELETE"
+        })
+        const data=await peticion.json()
+        return data
+    },
+
+
+    async getStudent_ID(studentID){
+        const peticion=await fetch (`http://localhost:4000/students/${studentID}`)
+        const data=await peticion.json()
+        return data
     }
+
+    
 }
 export default studentModel
+
+
